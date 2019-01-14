@@ -18,6 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// Middlewares
+app.use(express.json());
+// Db connection
+const { mongoose } = require('./database');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
